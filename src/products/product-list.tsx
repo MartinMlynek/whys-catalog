@@ -45,8 +45,8 @@ const ProductListBase: FC = () => {
             <ProductItem
               key={product.id}
               id={product.id}
-              title={product.title}
               description={product.description}
+              title={product.title}
               image={product.images[0]}
               price={product.price}
             />

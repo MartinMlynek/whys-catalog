@@ -48,16 +48,14 @@ const LayoutBase: FC<PropsWithChildren> = ({ children }) => {
       </Box>
       <Container
         component="main"
-        maxWidth="lg"
         sx={{
           gridArea: "main",
           p: 2,
-          maxWidth: "100vw",
+          minWidth: 24,
         }}
       >
         {children}
       </Container>
-
       <Box sx={{ gridArea: "footer", p: 2 }} component="footer">
         <Typography variant="body2" color="textSecondary">
           &copy; 2025 Whys entry task
