@@ -46,7 +46,15 @@ const LayoutBase: FC<PropsWithChildren> = ({ children }) => {
           rightNavigationItems={rightNavigationItems}
         />
       </Box>
-      <Container component="main" sx={{ gridArea: "main", p: 2 }}>
+      <Container
+        component="main"
+        maxWidth="lg"
+        sx={{
+          gridArea: "main",
+          p: 2,
+          maxWidth: "100vw",
+        }}
+      >
         {children}
       </Container>
 

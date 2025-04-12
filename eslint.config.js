@@ -4,11 +4,13 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 import reactX from "eslint-plugin-react-x";
 import reactDom from "eslint-plugin-react-dom";
+import pluginQuery from "@tanstack/eslint-plugin-query";
 
 export default tseslint.config(
   { ignores: ["dist"] },
   {
     extends: [
+      ...pluginQuery.configs["flat/recommended"],
       ...tseslint.configs.recommendedTypeChecked,
       ...tseslint.configs.strictTypeChecked,
       ...tseslint.configs.stylisticTypeChecked,
@@ -27,6 +29,7 @@ export default tseslint.config(
       "react-refresh": reactRefresh,
       "react-x": reactX,
       "react-dom": reactDom,
+      "@tanstack/query": pluginQuery,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,

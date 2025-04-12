@@ -8,8 +8,10 @@ import ErrorBoundary from "./layout/error-boundary/error-boundary";
 import { ErrorFallback } from "./layout/error-boundary/error-fallback";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { darkThemeOptions } from "./layout/theme";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const router = createRouter({ routeTree });
+const queryClient = new QueryClient();
 
 declare module "@tanstack/react-router" {
   interface Register {
@@ -24,10 +26,12 @@ if (rootElement && !rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <ErrorBoundary fallback={<ErrorFallback />}>
-        <ThemeProvider theme={darkThemeOptions}>
-          <CssBaseline />
-          <RouterProvider router={router} />
-        </ThemeProvider>
+        <QueryClientProvider client={queryClient}>
+          <ThemeProvider theme={darkThemeOptions}>
+            <CssBaseline />
+            <RouterProvider router={router} />
+          </ThemeProvider>
+        </QueryClientProvider>
       </ErrorBoundary>
     </StrictMode>
   );

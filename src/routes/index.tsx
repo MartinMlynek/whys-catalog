@@ -1,10 +1,6 @@
-import { Typography } from "@mui/material";
 import { createFileRoute } from "@tanstack/react-router";
+import { ProductList } from "../products/product-list";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  component: ProductList,
 });
-
-function Index() {
-  return <Typography variant="h1">Catalog</Typography>;
-}
