@@ -4,12 +4,22 @@ import { Navigation } from "./navigation/navigation";
 import { NavigationItemType } from "./types/navigation-item-type";
 
 const leftNavigationItems: NavigationItemType[] = [
-  { name: "Item 1", link: "/item-1" },
-  { name: "Item 2", link: "/item-2" },
+  {
+    label: "Catalog",
+    to: "/",
+  },
 ];
 
 const rightNavigationItems: NavigationItemType[] = [
-  { name: "Item 3", link: "/item-3" },
+  {
+    label: "User",
+    subMenuItems: [
+      {
+        label: "Profile",
+        to: "/profile",
+      },
+    ],
+  },
 ];
 
 const LayoutBase: FC<PropsWithChildren> = ({ children }) => {

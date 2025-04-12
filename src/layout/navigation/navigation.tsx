@@ -10,8 +10,8 @@ interface Props {
 }
 
 const navigationItemMapper = (item: NavigationItemType) => (
-  <NavigationItem key={item.name} menuItems={item.subMenuItems}>
-    {item.name}
+  <NavigationItem key={item.label} to={item.to} menuItems={item.subMenuItems}>
+    {item.label}
   </NavigationItem>
 );
 

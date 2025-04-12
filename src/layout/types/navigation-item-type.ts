@@ -1,5 +1,16 @@
-export interface NavigationItemType {
-  name: string;
-  link: string;
-  subMenuItems?: Omit<NavigationItemType, "subMenuItems">[];
+import { ToType } from "../../types/to-type";
+
+export interface NavigationLinkItem {
+  label: string;
+  to: ToType;
+  subMenuItems?: undefined;
 }
+export type SubMenuItemType = NavigationLinkItem;
+
+export interface NavigationMenuItem {
+  label: string;
+  to?: undefined;
+  subMenuItems: SubMenuItemType[];
+}
+
+export type NavigationItemType = NavigationLinkItem | NavigationMenuItem;
