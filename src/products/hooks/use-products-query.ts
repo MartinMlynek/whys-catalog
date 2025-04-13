@@ -1,7 +1,7 @@
-import { useCallback } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProducts } from "api/products";
 import { Product } from "api/types/product";
+import { useCallback } from "react";
 
 export const productsPerPage = 10;
 

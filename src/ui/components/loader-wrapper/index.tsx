@@ -1,4 +1,3 @@
-import { FC, useCallback, useEffect, useState } from "react";
 import {
   CircularProgress,
   Box,
@@ -8,6 +7,7 @@ import {
   Typography,
   Stack,
 } from "@mui/material";
+import { FC, useCallback, useEffect, useState } from "react";
 import { PropsWithMandatoryChildren } from "types/props-with-mandatory-children";
 
 interface LoaderWrapperProps extends PropsWithMandatoryChildren {

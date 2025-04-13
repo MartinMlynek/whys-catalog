@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint \"./src/**/*.{ts,tsx}\" && prettier \"./src/**/*.{ts,tsx}\" --check",
+    "type-check": "tsc --noEmit",
+    "check": "npm run type-check && npm run lint",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -24,6 +26,7 @@
   "devDependencies": {
     "@eslint/js": "9.21.0",
     "@tanstack/eslint-plugin-query": "^5.72.2",
+    "@tanstack/eslint-plugin-router": "^1.115.0",
     "@tanstack/react-router-devtools": "^1.115.3",
     "@tanstack/router-plugin": "^1.115.3",
     "@types/react": "19.0.10",
@@ -33,6 +36,7 @@
     "@vitejs/plugin-react-swc": "3.8.0",
     "eslint": "9.21.0",
     "eslint-config-prettier": "10.1.2",
+    "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "5.2.6",
     "eslint-plugin-react-dom": "1.43.0",
     "eslint-plugin-react-hooks": "5.1.0",

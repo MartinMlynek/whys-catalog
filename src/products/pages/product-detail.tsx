@@ -1,4 +1,7 @@
-import { FC, memo } from "react";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import CategoryIcon from "@mui/icons-material/Category";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import {
   Box,
   Typography,
@@ -9,16 +12,14 @@ import {
   Chip,
   Button,
 } from "@mui/material";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import CategoryIcon from "@mui/icons-material/Category";
 import { getRouteApi } from "@tanstack/react-router";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { useProductQuery } from "../hooks/use-product-query";
+import productPlaceholder from "assets/product.jpg";
+import { FC, memo } from "react";
 import { ButtonLink } from "ui/components/button-link";
 import { LoaderWrapper } from "ui/components/loader-wrapper";
 import { PageTitle } from "ui/components/page-title";
-import productPlaceholder from "assets/product.jpg";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+
+import { useProductQuery } from "../hooks/use-product-query";
 
 const { useParams } = getRouteApi("/products/$productId");
 

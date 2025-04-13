@@ -10,104 +10,104 @@
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as ProfileImport } from './routes/profile'
-import { Route as IndexImport } from './routes/index'
-import { Route as ProductsProductIdImport } from './routes/products/$productId'
+import { Route as rootRoute } from "./routes/__root";
+import { Route as ProfileImport } from "./routes/profile";
+import { Route as IndexImport } from "./routes/index";
+import { Route as ProductsProductIdImport } from "./routes/products/$productId";
 
 // Create/Update Routes
 
 const ProfileRoute = ProfileImport.update({
-  id: '/profile',
-  path: '/profile',
+  id: "/profile",
+  path: "/profile",
   getParentRoute: () => rootRoute,
-} as any)
+} as any);
 
 const IndexRoute = IndexImport.update({
-  id: '/',
-  path: '/',
+  id: "/",
+  path: "/",
   getParentRoute: () => rootRoute,
-} as any)
+} as any);
 
 const ProductsProductIdRoute = ProductsProductIdImport.update({
-  id: '/products/$productId',
-  path: '/products/$productId',
+  id: "/products/$productId",
+  path: "/products/$productId",
   getParentRoute: () => rootRoute,
-} as any)
+} as any);
 
 // Populate the FileRoutesByPath interface
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/profile': {
-      id: '/profile'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof ProfileImport
-      parentRoute: typeof rootRoute
-    }
-    '/products/$productId': {
-      id: '/products/$productId'
-      path: '/products/$productId'
-      fullPath: '/products/$productId'
-      preLoaderRoute: typeof ProductsProductIdImport
-      parentRoute: typeof rootRoute
-    }
+    "/": {
+      id: "/";
+      path: "/";
+      fullPath: "/";
+      preLoaderRoute: typeof IndexImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/profile": {
+      id: "/profile";
+      path: "/profile";
+      fullPath: "/profile";
+      preLoaderRoute: typeof ProfileImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/products/$productId": {
+      id: "/products/$productId";
+      path: "/products/$productId";
+      fullPath: "/products/$productId";
+      preLoaderRoute: typeof ProductsProductIdImport;
+      parentRoute: typeof rootRoute;
+    };
   }
 }
 
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/profile': typeof ProfileRoute
-  '/products/$productId': typeof ProductsProductIdRoute
+  "/": typeof IndexRoute;
+  "/profile": typeof ProfileRoute;
+  "/products/$productId": typeof ProductsProductIdRoute;
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/profile': typeof ProfileRoute
-  '/products/$productId': typeof ProductsProductIdRoute
+  "/": typeof IndexRoute;
+  "/profile": typeof ProfileRoute;
+  "/products/$productId": typeof ProductsProductIdRoute;
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute
-  '/': typeof IndexRoute
-  '/profile': typeof ProfileRoute
-  '/products/$productId': typeof ProductsProductIdRoute
+  __root__: typeof rootRoute;
+  "/": typeof IndexRoute;
+  "/profile": typeof ProfileRoute;
+  "/products/$productId": typeof ProductsProductIdRoute;
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/profile' | '/products/$productId'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/profile' | '/products/$productId'
-  id: '__root__' | '/' | '/profile' | '/products/$productId'
-  fileRoutesById: FileRoutesById
+  fileRoutesByFullPath: FileRoutesByFullPath;
+  fullPaths: "/" | "/profile" | "/products/$productId";
+  fileRoutesByTo: FileRoutesByTo;
+  to: "/" | "/profile" | "/products/$productId";
+  id: "__root__" | "/" | "/profile" | "/products/$productId";
+  fileRoutesById: FileRoutesById;
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  ProfileRoute: typeof ProfileRoute
-  ProductsProductIdRoute: typeof ProductsProductIdRoute
+  IndexRoute: typeof IndexRoute;
+  ProfileRoute: typeof ProfileRoute;
+  ProductsProductIdRoute: typeof ProductsProductIdRoute;
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProfileRoute: ProfileRoute,
   ProductsProductIdRoute: ProductsProductIdRoute,
-}
+};
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+  ._addFileTypes<FileRouteTypes>();
 
 /* ROUTE_MANIFEST_START
 {

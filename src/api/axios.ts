@@ -7,7 +7,7 @@ const api = axios.create({
 if (import.meta.env.DEV) {
   api.interceptors.request.use((config) => {
     console.group(
-      `🔹 Request: ${config.method?.toUpperCase() ?? "UNKNOWN"} ${config.url ?? "UNKNOWN URL"}`
+      `🔹 Request: ${config.method?.toUpperCase() ?? "UNKNOWN"} ${config.url ?? "UNKNOWN URL"}`,
     );
     console.log("Headers:", config.headers);
     if (config.params) console.log("Params:", config.params);
@@ -20,7 +20,7 @@ if (import.meta.env.DEV) {
   api.interceptors.response.use(
     (response) => {
       console.group(
-        `✅ Response: ${response.status.toString()} ${response.config.url ?? "UNKNOWN URL"}`
+        `✅ Response: ${response.status.toString()} ${response.config.url ?? "UNKNOWN URL"}`,
       );
       console.log("Data:", response.data);
       console.groupEnd();
@@ -30,7 +30,7 @@ if (import.meta.env.DEV) {
     (error) => {
       if (axios.isAxiosError(error)) {
         console.group(
-          `❌ Axios error: ${error.response?.status.toString() ?? "UNKNOWN"} ${error.config?.url ?? "UNKNOWN URL"}`
+          `❌ Axios error: ${error.response?.status.toString() ?? "UNKNOWN"} ${error.config?.url ?? "UNKNOWN URL"}`,
         );
         console.log("Data:", error.response?.data ?? "Unknown data");
         console.groupEnd();
@@ -43,7 +43,7 @@ if (import.meta.env.DEV) {
 
         return Promise.reject(new Error("Unknown axios error"));
       }
-    }
+    },
   );
 }
 

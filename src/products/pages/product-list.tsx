@@ -1,7 +1,8 @@
-import { ChangeEvent, FC, memo, useCallback, useMemo, useState } from "react";
-import { PageTitle } from "../../ui/components/page-title";
 import { Box, Grid, Pagination, Stack } from "@mui/material";
-import { LoaderWrapper } from "../../ui/components/loader-wrapper";
+import { ChangeEvent, FC, memo, useCallback, useMemo, useState } from "react";
+import { LoaderWrapper } from "ui/components/loader-wrapper";
+import { PageTitle } from "ui/components/page-title";
+
 import { ProductItem } from "../components/product-item";
 import { productsPerPage, useProductsQuery } from "../hooks/use-products-query";
 
@@ -13,12 +14,9 @@ const ProductListBase: FC = () => {
   const { products, error, isLoading, refetchProducts } =
     useProductsQuery(offset);
 
-  const handleChange = useCallback(
-    (_: ChangeEvent<unknown>, value: number) => {
-      setPage(value);
-    },
-    [setPage]
-  );
+  const handleChange = useCallback((_: ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+  }, []);
 
   return (
     <Stack spacing={2}>

@@ -1,3 +1,4 @@
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import {
   Card,
   CardActionArea,
@@ -8,11 +9,9 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { FC, memo, useCallback } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
 import productPlaceholder from "assets/product.jpg";
+import { FC, memo, useCallback } from "react";
 
 interface Props {
   id: number;
