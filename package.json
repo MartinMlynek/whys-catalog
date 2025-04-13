@@ -2,6 +2,7 @@
   "name": "whys-catalog",
   "private": true,
   "version": "0.0.0",
+  "author": "Martin Mlýnek",
   "type": "module",
   "scripts": {
     "dev": "vite",
