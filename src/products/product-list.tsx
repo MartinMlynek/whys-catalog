@@ -1,31 +1,24 @@
 import { ChangeEvent, FC, memo, useCallback, useMemo, useState } from "react";
 import { PageTitle } from "../ui/page-title";
 import { Box, Grid, Pagination, Stack } from "@mui/material";
-import { useQuery } from "@tanstack/react-query";
-import { fetchProducts } from "../api/products";
-import { Product } from "../api/types/product";
 import { LoaderWrapper } from "../ui/loader-wrapper";
 import { ProductItem } from "./product-item";
-
-const productsPerPage = 10;
+import { productsPerPage, useProductsQuery } from "./hooks/use-products-query";
 
 const ProductListBase: FC = () => {
   const [page, setPage] = useState(1);
 
   const offset = useMemo(() => (page - 1) * productsPerPage, [page]);
 
-  const { data, error, isLoading, refetch } = useQuery<Product[]>({
-    queryKey: ["products", offset],
-    queryFn: () => fetchProducts(offset, productsPerPage),
-  });
+  const { products, error, isLoading, refetchProducts } =
+    useProductsQuery(offset);
 
-  const refetchProducts = useCallback(() => {
-    void refetch();
-  }, [refetch]);
-
-  const handleChange = (_: ChangeEvent<unknown>, value: number) => {
-    setPage(value);
-  };
+  const handleChange = useCallback(
+    (_: ChangeEvent<unknown>, value: number) => {
+      setPage(value);
+    },
+    [setPage]
+  );
 
   return (
     <Stack spacing={2}>
@@ -41,7 +34,7 @@ const ProductListBase: FC = () => {
           spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
-          {data?.map((product) => (
+          {products?.map((product) => (
             <ProductItem
               key={product.id}
               id={product.id}
