@@ -7,6 +7,7 @@ import {
   CardMedia,
   Stack,
   Chip,
+  Button,
 } from "@mui/material";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import CategoryIcon from "@mui/icons-material/Category";
@@ -17,6 +18,7 @@ import { ButtonLink } from "ui/components/button-link";
 import { LoaderWrapper } from "ui/components/loader-wrapper";
 import { PageTitle } from "ui/components/page-title";
 import productPlaceholder from "assets/product.jpg";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const { useParams } = getRouteApi("/products/$productId");
 
@@ -77,6 +79,13 @@ const ProductDetailBase: FC = () => {
                     </Typography>
                   </Stack>
                 )}
+                <Button
+                  variant="contained"
+                  color="primary"
+                  startIcon={<ShoppingCartIcon />}
+                >
+                  Add to cart
+                </Button>
               </Stack>
             </Grid>
           </Grid>

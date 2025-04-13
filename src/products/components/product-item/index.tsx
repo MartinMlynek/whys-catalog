@@ -4,10 +4,13 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  IconButton,
+  Stack,
   Typography,
 } from "@mui/material";
 import { FC, memo, useCallback } from "react";
 import { useNavigate } from "@tanstack/react-router";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import productPlaceholder from "assets/product.jpg";
 
@@ -55,9 +58,19 @@ const ProductItemBase: FC<Props> = ({
             <Typography variant="body2" color="text.secondary" noWrap>
               {description}
             </Typography>
-            <Typography variant="subtitle1" fontSize={24} color="primary">
-              ${price}
-            </Typography>
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+              mt={1}
+            >
+              <Typography variant="subtitle1" fontSize={20} color="primary">
+                ${price}
+              </Typography>
+              <IconButton color="primary" aria-label="Add to cart">
+                <ShoppingCartIcon />
+              </IconButton>
+            </Stack>
           </CardContent>
         </CardActionArea>
       </Card>
