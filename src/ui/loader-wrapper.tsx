@@ -36,7 +36,10 @@ export const LoaderWrapper: FC<LoaderWrapperProps> = ({
   }, []);
 
   useEffect(() => {
-    if (error) setOpen(true);
+    if (error) {
+      setOpen(true);
+      console.error(error);
+    }
   }, [error]);
 
   if (isLoading) {

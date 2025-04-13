@@ -1,19 +1,20 @@
 import api from "./axios";
-import { Product } from "./types/product";
+import { Product, ProductSchema, ProductsSchema } from "./types/product";
+import { validateSchema } from "./validate-schema";
 
 export const fetchProducts = async (
   offset = 0,
   limit = 10
 ): Promise<Product[]> => {
-  const res = await api.get<Product[]>("/products", {
+  const res = await api.get("/products", {
     params: { offset, limit },
   });
 
-  return res.data;
+  return validateSchema(ProductsSchema, res.data);
 };
 
-export const fetchProductById = async (id: string): Promise<Product> => {
-  const res = await api.get<Product>(`/products/${id}`);
+export const fetchProductById = async (id: number): Promise<Product> => {
+  const res = await api.get(`/products/${id.toString()}`);
 
-  return res.data;
+  return validateSchema(ProductSchema, res.data);
 };

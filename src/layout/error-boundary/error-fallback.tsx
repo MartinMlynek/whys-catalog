@@ -1,5 +1,6 @@
-import { Button, Card, Container, Typography } from "@mui/material";
+import { Button, Card, Container, Stack, Typography } from "@mui/material";
 import { memo } from "react";
+import { ButtonLink } from "../../ui/button-link";
 
 const reloadApp = (): void => {
   window.location.reload();
@@ -30,14 +31,17 @@ const ErrorFallbackBase = () => {
         <Typography variant="body1">
           Something went wrong. Please try reloading the application.
         </Typography>
-        <Button
-          onClick={reloadApp}
-          variant="contained"
-          color="primary"
-          sx={{ mt: 3 }}
-        >
-          Reload Application
-        </Button>
+        <Stack spacing={1} mt={1}>
+          <Button
+            onClick={reloadApp}
+            variant="contained"
+            color="primary"
+            sx={{ mt: 3 }}
+          >
+            Reload Application
+          </Button>
+          <ButtonLink to="/">Back to home page</ButtonLink>
+        </Stack>
       </Card>
     </Container>
   );

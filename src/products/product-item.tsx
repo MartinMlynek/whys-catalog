@@ -30,7 +30,7 @@ const ProductItemBase: FC<Props> = ({
     void navigate({
       to: "/products/$productId",
       params: {
-        productId: String(id),
+        productId: id,
       },
     });
   }, [id, navigate]);
