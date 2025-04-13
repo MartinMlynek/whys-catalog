@@ -61,7 +61,11 @@ export const LoaderWrapper: FC<LoaderWrapperProps> = ({
   return (
     <>
       {children}
-      <Snackbar open={open} onClose={handleCloseAlert} autoHideDuration={6000}>
+      <Snackbar
+        open={open}
+        onClose={handleCloseAlert}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      >
         <Alert
           severity="error"
           onClose={handleCloseAlert}
