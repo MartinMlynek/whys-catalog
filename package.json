@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint \"./src/**/*.{ts,tsx}\" && prettier \"./src/**/*.{ts,tsx}\" --check",
+    "lint": "eslint \"./src/**/*.{ts,tsx}\"",
     "type-check": "tsc --noEmit",
     "test": "jest",
     "check": "npm run type-check && npm run lint && npm run test",
