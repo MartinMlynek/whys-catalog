@@ -10,6 +10,8 @@ interface UseProductQueryResult {
   refetchProduct: () => void;
 }
 
+const staleTime = 2 * 1000 * 60;
+
 export const useProductQuery = (productId: number): UseProductQueryResult => {
   const {
     data: product,
@@ -19,6 +21,7 @@ export const useProductQuery = (productId: number): UseProductQueryResult => {
   } = useQuery<Product>({
     queryKey: ["product", productId],
     queryFn: () => fetchProductById(productId),
+    staleTime,
   });
 
   const refetchProduct = useCallback(() => {

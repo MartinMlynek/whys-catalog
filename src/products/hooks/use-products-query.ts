@@ -14,6 +14,8 @@ interface UseProductsQueryResult {
   refetchProducts: () => void;
 }
 
+const staleTime = 2 * 1000 * 60;
+
 export const useProductsQuery = (offset: number): UseProductsQueryResult => {
   const {
     data: products,
@@ -23,6 +25,7 @@ export const useProductsQuery = (offset: number): UseProductsQueryResult => {
   } = useQuery<Product[]>({
     queryKey: ["products", offset],
     queryFn: () => fetchProducts(offset, productsPerPage),
+    staleTime,
   });
 
   const refetchProducts = useCallback(() => {
