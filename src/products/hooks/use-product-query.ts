@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
+import { fetchProductById } from "api/products";
+import { Product } from "api/types/product";
 import { useCallback } from "react";
-import { Product } from "../../api/types/product";
-import { fetchProductById } from "../../api/products";
 
 interface UseProductQueryResult {
   product: Product | undefined;

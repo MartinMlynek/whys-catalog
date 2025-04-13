@@ -1,7 +1,7 @@
 import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 import { FC, memo } from "react";
 import { NavigationItem } from "./navigation-item";
-import { NavigationItemType } from "../types/navigation-item-type";
+import { NavigationItemType } from "../../types/navigation-item-type";
 
 interface Props {
   title: string;

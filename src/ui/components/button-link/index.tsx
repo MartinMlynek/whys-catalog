@@ -3,7 +3,7 @@ import { createLink } from "@tanstack/react-router";
 import { Button } from "@mui/material";
 import type { ButtonProps } from "@mui/material";
 import type { LinkComponent } from "@tanstack/react-router";
-import { ToType } from "../types/to-type";
+import { ToType } from "types/to-type";
 
 interface MUIButtonLinkProps extends ButtonProps<"a"> {
   to: ToType;

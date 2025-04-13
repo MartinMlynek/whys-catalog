@@ -8,7 +8,7 @@ import {
   Typography,
   Stack,
 } from "@mui/material";
-import { PropsWithMandatoryChildren } from "../types/props-with-children";
+import { PropsWithMandatoryChildren } from "types/props-with-mandatory-children";
 
 interface LoaderWrapperProps extends PropsWithMandatoryChildren {
   isLoading: boolean;

@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren, memo } from "react";
 import { Typography, Container, Box } from "@mui/material";
-import { Navigation } from "./navigation/navigation";
 import { NavigationItemType } from "./types/navigation-item-type";
+import { Navigation } from "./components/navigation";
 
 const leftNavigationItems: NavigationItemType[] = [
   {

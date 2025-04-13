@@ -11,12 +11,12 @@ import {
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import CategoryIcon from "@mui/icons-material/Category";
 import { getRouteApi } from "@tanstack/react-router";
-import { LoaderWrapper } from "../ui/loader-wrapper";
-import { ButtonLink } from "../ui/button-link";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { PageTitle } from "../ui/page-title";
-import productPlaceholder from "../assets/product.jpg";
-import { useProductQuery } from "./hooks/use-product-query";
+import { useProductQuery } from "../hooks/use-product-query";
+import { ButtonLink } from "ui/components/button-link";
+import { LoaderWrapper } from "ui/components/loader-wrapper";
+import { PageTitle } from "ui/components/page-title";
+import productPlaceholder from "assets/product.jpg";
 
 const { useParams } = getRouteApi("/products/$productId");
 

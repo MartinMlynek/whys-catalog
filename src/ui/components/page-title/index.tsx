@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
-import React, { FC } from "react";
-import { PropsWithMandatoryChildren } from "../types/props-with-children";
+import { FC } from "react";
+import { PropsWithMandatoryChildren } from "types/props-with-mandatory-children";
 
 export const PageTitle: FC<PropsWithMandatoryChildren> = ({ children }) => {
   return (

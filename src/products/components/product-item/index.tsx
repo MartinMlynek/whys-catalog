@@ -9,7 +9,7 @@ import {
 import { FC, memo, useCallback } from "react";
 import { useNavigate } from "@tanstack/react-router";
 
-import productPlaceholder from "../assets/product.jpg";
+import productPlaceholder from "assets/product.jpg";
 
 interface Props {
   id: number;

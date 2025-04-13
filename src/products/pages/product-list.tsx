@@ -1,9 +1,9 @@
 import { ChangeEvent, FC, memo, useCallback, useMemo, useState } from "react";
-import { PageTitle } from "../ui/page-title";
+import { PageTitle } from "../../ui/components/page-title";
 import { Box, Grid, Pagination, Stack } from "@mui/material";
-import { LoaderWrapper } from "../ui/loader-wrapper";
-import { ProductItem } from "./product-item";
-import { productsPerPage, useProductsQuery } from "./hooks/use-products-query";
+import { LoaderWrapper } from "../../ui/components/loader-wrapper";
+import { ProductItem } from "../components/product-item";
+import { productsPerPage, useProductsQuery } from "../hooks/use-products-query";
 
 const ProductListBase: FC = () => {
   const [page, setPage] = useState(1);

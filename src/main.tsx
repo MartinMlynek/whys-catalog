@@ -5,7 +5,7 @@ import { RouterProvider, createRouter } from "@tanstack/react-router";
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { darkThemeOptions } from "./layout/theme";
+import { darkThemeOptions } from "layout/theme";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const router = createRouter({ routeTree });

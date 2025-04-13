@@ -1,6 +1,6 @@
 import { Button, Card, Container, Stack, Typography } from "@mui/material";
 import { memo } from "react";
-import { ButtonLink } from "../../ui/button-link";
+import { ButtonLink } from "ui/components/button-link";
 
 const reloadApp = (): void => {
   window.location.reload();

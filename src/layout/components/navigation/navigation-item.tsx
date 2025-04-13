@@ -1,9 +1,9 @@
 import { Menu, MenuItem } from "@mui/material";
 import { FC, memo, MouseEvent, useCallback, useMemo, useState } from "react";
-import { PropsWithMandatoryChildren } from "../../types/props-with-children";
-import { NavigationItemType } from "../types/navigation-item-type";
-import { ButtonLink } from "../../ui/button-link";
-import { ToType } from "../../types/to-type";
+import { NavigationItemType } from "../../types/navigation-item-type";
+import { ToType } from "types/to-type";
+import { PropsWithMandatoryChildren } from "types/props-with-mandatory-children";
+import { ButtonLink } from "ui/components/button-link";
 
 interface Props extends PropsWithMandatoryChildren {
   menuItems?: Omit<NavigationItemType, "subMenuItems">[];
