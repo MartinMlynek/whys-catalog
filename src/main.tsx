@@ -4,8 +4,6 @@ import { RouterProvider, createRouter } from "@tanstack/react-router";
 
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen";
-import ErrorBoundary from "./layout/error-boundary/error-boundary";
-import { ErrorFallback } from "./layout/error-boundary/error-fallback";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { darkThemeOptions } from "./layout/theme";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -25,14 +23,12 @@ if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <StrictMode>
-      <ErrorBoundary fallback={<ErrorFallback />}>
-        <QueryClientProvider client={queryClient}>
-          <ThemeProvider theme={darkThemeOptions}>
-            <CssBaseline />
-            <RouterProvider router={router} />
-          </ThemeProvider>
-        </QueryClientProvider>
-      </ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={darkThemeOptions}>
+          <CssBaseline />
+          <RouterProvider router={router} />
+        </ThemeProvider>
+      </QueryClientProvider>
     </StrictMode>
   );
 }
