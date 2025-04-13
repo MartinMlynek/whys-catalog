@@ -16,6 +16,8 @@ import { fetchProductById } from "../api/products";
 import { LoaderWrapper } from "../ui/loader-wrapper";
 import { ButtonLink } from "../ui/button-link";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { PageTitle } from "../ui/page-title";
+
 const { useParams } = getRouteApi("/products/$productId");
 
 const ProductDetailBase: FC = () => {
@@ -38,8 +40,8 @@ const ProductDetailBase: FC = () => {
   return (
     <LoaderWrapper
       isLoading={isLoading}
-      error={error instanceof Error ? error : null}
-      loadingText="Načítám produkt..."
+      error={error}
+      loadingText="Loading product..."
       onRetry={refetchProduct}
     >
       {product && (
@@ -62,9 +64,7 @@ const ProductDetailBase: FC = () => {
 
             <Grid size={{ xs: 12, md: 6 }}>
               <Stack spacing={3}>
-                <Typography variant="h4" fontWeight="bold">
-                  {product.title}
-                </Typography>
+                <PageTitle>{product.title}</PageTitle>
 
                 <Typography variant="h5" color="primary">
                   ${product.price}

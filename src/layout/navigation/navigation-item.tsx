@@ -29,7 +29,7 @@ const NavigationItemBase: FC<Props> = ({ children, menuItems, to }) => {
         to={to}
         sx={{ my: 2, color: "white", display: "block" }}
         onClick={handleClick}
-        activeProps={menuItems ? undefined : { sx: { color: "yellow" } }}
+        activeProps={menuItems ? undefined : { sx: { color: "primary.main" } }}
         aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
@@ -42,7 +42,8 @@ const NavigationItemBase: FC<Props> = ({ children, menuItems, to }) => {
             <MenuItem key={item.label} onClick={handleClose}>
               <ButtonLink
                 to={item.to}
-                activeProps={{ sx: { color: "yellow" } }}
+                sx={{ my: 2, color: "white" }}
+                activeProps={{ sx: { color: "primary.main" } }}
               >
                 {item.label}
               </ButtonLink>
