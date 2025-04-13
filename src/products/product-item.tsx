@@ -9,6 +9,8 @@ import {
 import { FC, memo, useCallback } from "react";
 import { useNavigate } from "@tanstack/react-router";
 
+import productPlaceholder from "../assets/product.jpg";
+
 interface Props {
   id: number;
   title: string;
@@ -42,7 +44,7 @@ const ProductItemBase: FC<Props> = ({
           <CardMedia
             component="img"
             height="180"
-            image={image ?? "/placeholder.jpg"}
+            image={image ?? productPlaceholder}
             alt={title}
             sx={{ objectFit: "cover" }}
           />

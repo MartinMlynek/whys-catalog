@@ -17,6 +17,7 @@ import { LoaderWrapper } from "../ui/loader-wrapper";
 import { ButtonLink } from "../ui/button-link";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { PageTitle } from "../ui/page-title";
+import productPlaceholder from "../assets/product.jpg";
 
 const { useParams } = getRouteApi("/products/$productId");
 
@@ -55,7 +56,7 @@ const ProductDetailBase: FC = () => {
               <Card>
                 <CardMedia
                   component="img"
-                  image={product.images[0] ?? "/placeholder.jpg"}
+                  image={product.images[0] ?? productPlaceholder}
                   alt={product.title}
                   sx={{ maxHeight: 500, objectFit: "contain" }}
                 />
