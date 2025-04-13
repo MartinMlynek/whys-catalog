@@ -2,26 +2,7 @@ import { Typography, Container, Box } from "@mui/material";
 import { FC, PropsWithChildren, memo } from "react";
 
 import { Navigation } from "./components/navigation";
-import { NavigationItemType } from "./types/navigation-item-type";
-
-const leftNavigationItems: NavigationItemType[] = [
-  {
-    label: "Catalog",
-    to: "/",
-  },
-];
-
-const rightNavigationItems: NavigationItemType[] = [
-  {
-    label: "User",
-    subMenuItems: [
-      {
-        label: "Profile",
-        to: "/profile",
-      },
-    ],
-  },
-];
+import { leftNavigationItems, rightNavigationItems } from "./navigation-items";
 
 const LayoutBase: FC<PropsWithChildren> = ({ children }) => (
   <Box
