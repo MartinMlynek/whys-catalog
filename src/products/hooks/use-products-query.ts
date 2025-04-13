@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchProducts } from "api/products";
 import { Product } from "api/types/product";
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
+import { isEmpty } from "utils/is-empty";
 
 export const productsPerPage = 10;
 
@@ -9,11 +10,17 @@ interface UseProductsQueryResult {
   products: Product[] | undefined;
   isLoading: boolean;
   error: Error | null;
+  productsAreFull: boolean;
   refetchProducts: () => void;
 }
 
 export const useProductsQuery = (offset: number): UseProductsQueryResult => {
-  const { data, error, isLoading, refetch } = useQuery<Product[]>({
+  const {
+    data: products,
+    error,
+    isLoading,
+    refetch,
+  } = useQuery<Product[]>({
     queryKey: ["products", offset],
     queryFn: () => fetchProducts(offset, productsPerPage),
   });
@@ -22,10 +29,13 @@ export const useProductsQuery = (offset: number): UseProductsQueryResult => {
     void refetch();
   }, [refetch]);
 
+  const productsAreFull = useMemo(() => !isEmpty(products), [products]);
+
   return {
-    products: data,
+    products,
     isLoading,
     error,
+    productsAreFull,
     refetchProducts,
   };
 };

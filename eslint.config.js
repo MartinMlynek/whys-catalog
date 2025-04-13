@@ -9,7 +9,7 @@ import importPlugin from "eslint-plugin-import";
 import pluginRouter from "@tanstack/eslint-plugin-router";
 
 export default tseslint.config(
-  { ignores: ["dist"] },
+  { ignores: ["dist", "jest.config.ts"] },
   {
     extends: [
       ...pluginQuery.configs["flat/recommended"],
